@@ -10,8 +10,23 @@
 
 <section>
 	<h1>Joakim blog</h1>
-	<button on:click={() => console.log(data)}>data</button>
+	<button on:click={() => console.log(data.tags)}>data</button>
 	<h2>try editing, yo</h2>
+
+	<div class="posts">
+		{#each data.posts as post}
+			<button class="post" on:click={() => console.log(post)}>
+				<h3>{post.fields.title}</h3>
+				{#if post.fields.tags}
+					<p>Tags:
+						{#each post.fields.tags as tagId}
+						{if data.tags.find((t) => t.id === tagId) ? t : null}
+
+					</p>
+				{/if}
+			</button>
+		{/each}
+	</div>
 </section>
 
 <style>
@@ -25,5 +40,18 @@
 
 	h1 {
 		width: 100%;
+	}
+
+	.posts {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.post {
+		background-color: #f3f3f3;
+		padding: 1rem;
+		border-radius: 8px;
+		cursor: pointer;
 	}
 </style>

@@ -17,13 +17,16 @@ export interface Tag {
   
   // Define types for a Post
   export interface Post {
-    id: number;
-    title: string;
-    content: string;
-    author: number;
-    tags: Tag[];
-    created_at: string;
-    updated_at: string | null;
+    model: string;
+    pk: number;
+    fields: {
+      title: string;
+      content: string;
+      author: number;
+      created_at: string;
+      updated_at: string | null;
+      tags: Tag[];
+    };
   }
   
   // Define types for the JSON response returned by the server
