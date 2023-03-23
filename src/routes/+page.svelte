@@ -1,6 +1,12 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
+
+	let relevantTags = [];
+	onMount(() => {
+		console.log('Fetching data...');
+	});
 </script>
 
 <svelte:head>
