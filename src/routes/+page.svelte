@@ -3,7 +3,6 @@
 	import type { PageData } from './$types';
 	export let data: PageData;
 
-	let relevantTags = [];
 	onMount(() => {
 		console.log('Fetching data...');
 	});
@@ -16,7 +15,6 @@
 
 <section class="content">
 	<h1>Joakim blog</h1>
-	<button on:click={() => console.log(data)}>data</button>
 	<h2>try editing, yo</h2>
 
 	<div class="posts">
