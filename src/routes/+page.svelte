@@ -1,6 +1,12 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
+
+	let relevantTags = [];
+	onMount(() => {
+		console.log('Fetching data...');
+	});
 </script>
 
 <svelte:head>
@@ -10,7 +16,7 @@
 
 <section>
 	<h1>Joakim blog</h1>
-	<button on:click={() => console.log(data.tags)}>data</button>
+	<button on:click={() => console.log(data.posts)}>data</button>
 	<h2>try editing, yo</h2>
 
 	<div class="posts">
@@ -18,11 +24,7 @@
 			<button class="post" on:click={() => console.log(post)}>
 				<h3>{post.fields.title}</h3>
 				{#if post.fields.tags}
-					<p>Tags:
-						{#each post.fields.tags as tagId}
-						{if data.tags.find((t) => t.id === tagId) ? t : null}
-
-					</p>
+					<p>Tags:</p>
 				{/if}
 			</button>
 		{/each}
