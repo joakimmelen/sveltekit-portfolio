@@ -1,9 +1,23 @@
 <script>
 	import { page } from '$app/stores';
-	import github from '$lib/images/github.svg';
+	import profileIcon from '$lib/images/profileIcon.svg';
+	import LoginRegisterModal from '$lib/components/login/LoginRegisterModal.svelte';
+
+	let showModal = false;
+
+	function toggleModal() {
+		showModal = !showModal;
+	}
+
+	function handleCloseModal() {
+		showModal = false;
+	}
 </script>
 
 <header>
+	{#if showModal}
+		<LoginRegisterModal on:close={handleCloseModal} />
+	{/if}
 	<div />
 	<nav>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -13,8 +27,17 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Home</a>
 			</li>
+			<li aria-current={$page.url.pathname === '/blog' ? 'page' : undefined}>
+				<a href="/blog">Blog</a>
+			</li>
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/about">About</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/projects' ? 'page' : undefined}>
+				<a href="/projects">Projects</a>
+			</li>
+			<li aria-current={$page.url.pathname === '/contact' ? 'page' : undefined}>
+				<a href="/contact">Contact</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -23,9 +46,9 @@
 	</nav>
 
 	<div class="corner">
-		<a href="https://github.com/joakimmelen" target="_blank" rel="noreferrer">
-			<img src={github} alt="GitHub" />
-		</a>
+		<button on:click|preventDefault={toggleModal}>
+			<img src={profileIcon} alt="Profile" />
+		</button>
 	</div>
 </header>
 

@@ -9,49 +9,17 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Dev. Joakim Melén</title>
+	<meta name="home" content="This is the landing page of my portfolio and blog site" />
 </svelte:head>
 
-<section class="content">
-	<h1>Joakim blog</h1>
-	<h2>try editing, yo</h2>
-
-	<div class="posts">
-		{#each data.posts as post}
-			<article
-				class="post"
-				on:keyup={() => (post.isOpen = !post.isOpen)}
-				on:click={() => (post.isOpen = !post.isOpen)}
-				class:post--compact={!post.isOpen}
-				class:post--open={post.isOpen}
-			>
-				<div>
-					<h3>{post.title}</h3>
-					{#if !post.isOpen}
-						<p>{post.content.substring(0, 100)}...</p>
-						<p>
-							{#each post.tags as tag}
-								<span>{tag}</span>
-							{/each}
-							By: {post.author.username} @ {post.created_at}
-						</p>
-					{/if}
-					{#if post.isOpen}
-						<div>
-							<p>{post.content}</p>
-							<p>
-								{#each post.tags as tag}
-									<span>{tag}</span>
-								{/each}
-								By: {post.author.username} @ {post.created_at}
-							</p>
-						</div>
-					{/if}
-				</div>
-			</article>
-		{/each}
-	</div>
+<section class="part">
+	<h1>This is a heading in bold</h1>
+	<h2>This is a subheading in bold and italic</h2>
+	<h3>This is a sub-subheading in bold</h3>
+	<p>This is a paragraph in light weight</p>
+	<div>This is a div with normal weight</div>
+	<pre>This is a preformatted text with monospace font</pre>
 </section>
 
 <style>
@@ -65,35 +33,5 @@
 
 	h1 {
 		width: 100%;
-	}
-
-	.posts {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-	}
-
-	.post--compact {
-		background-color: #f3f3f3;
-		padding: 1rem;
-		border-radius: 8px;
-		width: 100%;
-		margin-bottom: 1rem;
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-		cursor: pointer;
-		text-decoration: none;
-		color: inherit;
-	}
-
-	.post {
-		background-color: #f3f3f3;
-		padding: 1rem;
-		border-radius: 8px;
-		cursor: pointer;
-	}
-
-	span {
-		border: 1px solid grey;
-		padding: 1px;
 	}
 </style>
