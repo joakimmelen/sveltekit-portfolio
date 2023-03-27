@@ -17,7 +17,7 @@
 <section>
 	<h1>Joakim blog</h1>
 	<button on:click={() => console.log(data.posts)}>data</button>
-	<h2>try editing, flow flow</h2>
+	<h2>try editing, yo</h2>
 
 	<div class="posts">
 		{#each data.posts as post}
