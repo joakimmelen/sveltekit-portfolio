@@ -3,31 +3,36 @@
 	import type { PageData } from './$types';
 	export let data: PageData;
 
-	let relevantTags = [];
 	onMount(() => {
-		console.log('Fetching data...');
+		console.log('Fetching data...', data);
 	});
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Dev. Joakim Melén</title>
+	<meta name="home" content="This is the landing page of my portfolio and blog site" />
 </svelte:head>
 
-<section>
-	<h1>Joakim blog</h1>
-	<button on:click={() => console.log(data.posts)}>data</button>
-	<h2>try editing, yo</h2>
+<section class="welcome-section">
+	<div class="welcome-message">
+		<h2>Joakim Melén: Developer, Creator, Innovator</h2>
+		<p>
+			Hey there! I'm Joakim, a developer from Sweden with a passion for coding and creating cool
+			stuff. This blog is where I share my thoughts and showcase some of my latest projects.
+		</p>
+		<p>
+			If you're looking for help with your own projects, or if you just want to chat about all
+			things tech, feel free to contact me. I'm always up for a good conversation and collaboration!
+		</p>
+	</div>
+</section>
 
-	<div class="posts">
-		{#each data.posts as post}
-			<button class="post" on:click={() => console.log(post)}>
-				<h3>{post.fields.title}</h3>
-				{#if post.fields.tags}
-					<p>Tags:</p>
-				{/if}
-			</button>
-		{/each}
+<section class="haiku-section">
+	<div class="hero-haiku">
+		<h5>Swiftly on Mac's OS,</h5>
+		<h4>Or Windows with equal ease,</h4>
+		<h5>Code flows like a breeze.</h5>
+		<h6 class="author">- Joakim Melén</h6>
 	</div>
 </section>
 
@@ -37,23 +42,13 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		flex: 0.6;
+		flex: 0.2;
 	}
 
-	h1 {
-		width: 100%;
-	}
-
-	.posts {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-	}
-
-	.post {
-		background-color: #f3f3f3;
-		padding: 1rem;
-		border-radius: 8px;
-		cursor: pointer;
+	.hero-haiku {
+		border: 2px solid transparent;
+		border-image: linear-gradient(to right, black, grey, rgb(194, 194, 194), whitesmoke) 1;
+		padding: 4rem;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 	}
 </style>
