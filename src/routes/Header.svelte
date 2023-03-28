@@ -81,6 +81,7 @@
 		display: flex;
 		justify-content: center;
 		--background: rgba(255, 255, 255, 0.7);
+		border: 1px solid grey;
 	}
 
 	svg {
@@ -101,9 +102,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
+		font-family: var(--ff-mono);
 	}
 
 	li {
@@ -130,7 +129,6 @@
 		padding: 0 0.5rem;
 		color: var(--color-text);
 		font-weight: 700;
-		font-size: 0.8rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-decoration: none;
@@ -138,6 +136,6 @@
 	}
 
 	a:hover {
-		color: var(--color-theme-1);
+		color: var(--mainLinkColor);
 	}
 </style>

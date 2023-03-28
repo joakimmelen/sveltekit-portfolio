@@ -148,6 +148,17 @@ body {
   #REUSED STYLE
 \*-----------------------------------*/
 
+.btn {
+  border: 1px solid var(--mainLinkColor);
+  background-color: var(--secondaryLinkColor);
+  padding: 1rem;
+  transition: .2s ease-out;
+}
+.btn:hover {
+  transition: .2s ease-in-out;
+  background-color: var(--mainBgColor);
+}
+
 /* Define the keyframe animations */
 @keyframes reveal-top {
   from { opacity: 0; transform: translateY(-35px); }

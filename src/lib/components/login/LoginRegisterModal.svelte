@@ -11,13 +11,11 @@
 	async function handleRegister() {
 		const data = await register(username, password, email);
 		console.log(data);
-		console.log('register');
 	}
 
 	async function handleLogin() {
 		const data = await login(username, password);
 		console.log(data);
-		console.log('login');
 	}
 
 	function closeModal() {
@@ -46,7 +44,7 @@
 		<input type="text" bind:value={username} placeholder="Username" />
 		<input type="password" bind:value={password} placeholder="Password" />
 		{#if activeTab === 'register'}
-			<input type="email" bind:value={email} placeholder="Email" />
+			<input style="border: 1px solid orange" type="email" bind:value={email} placeholder="Email" />
 		{/if}
 		{#if activeTab === 'login'}
 			<button on:click={handleLogin}>Login</button>
@@ -54,6 +52,10 @@
 			<button on:click={handleRegister}>Register</button>
 		{/if}
 		<button on:click={closeModal}>Close</button>
+		<br />
+		<br />
+		<br />
+		<a class="btn" href="/account">Account</a>
 	</div>
 </div>
 
@@ -74,8 +76,9 @@
 		background-color: #fff;
 		padding: 1rem;
 		border-radius: 5px;
-		width: 300px;
+		width: 350px;
 		text-align: center;
+		height: 40vh;
 	}
 
 	.tab-container {
